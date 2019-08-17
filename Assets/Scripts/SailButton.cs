@@ -25,4 +25,10 @@ public class SailButton : MonoBehaviour
         Canvas.SetActive(false);
         Sail.SetActive(true);
     }
+    public void XButtonCricked()
+    {
+        Canvas.SetActive(true);
+        Sail.SetActive(false);
+    }
+
 }
