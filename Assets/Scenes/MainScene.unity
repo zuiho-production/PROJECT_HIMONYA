@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 161338901}
   - component: {fileID: 161338900}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: v_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 191231693}
   - component: {fileID: 191231692}
   m_Layer: 5
-  m_Name: Button (6)
+  m_Name: v_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 646092952}
   - component: {fileID: 646092951}
   m_Layer: 5
-  m_Name: Button (11)
+  m_Name: v_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 766156457}
   - component: {fileID: 766156456}
   m_Layer: 5
-  m_Name: Button (8)
+  m_Name: v_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 917796364}
   - component: {fileID: 917796363}
   m_Layer: 5
-  m_Name: Button (7)
+  m_Name: v_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1570,7 +1570,7 @@ GameObject:
   - component: {fileID: 1011079778}
   - component: {fileID: 1011079777}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: v_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1692,7 +1692,7 @@ GameObject:
   - component: {fileID: 1063624015}
   - component: {fileID: 1063624014}
   m_Layer: 5
-  m_Name: Button (10)
+  m_Name: v_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2051,7 +2051,7 @@ GameObject:
   - component: {fileID: 1223502910}
   - component: {fileID: 1223502909}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: sail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2163,7 +2163,7 @@ GameObject:
   - component: {fileID: 1275005663}
   - component: {fileID: 1275005662}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: v_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2622,7 +2622,7 @@ GameObject:
   - component: {fileID: 1390973680}
   - component: {fileID: 1390973679}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: v_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3139,7 +3139,7 @@ GameObject:
   - component: {fileID: 1704924656}
   - component: {fileID: 1704924655}
   m_Layer: 5
-  m_Name: Button (9)
+  m_Name: v_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3261,7 +3261,7 @@ GameObject:
   - component: {fileID: 1709405131}
   - component: {fileID: 1709405130}
   m_Layer: 5
-  m_Name: Button
+  m_Name: v_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3663,7 +3663,7 @@ GameObject:
   - component: {fileID: 2028873143}
   - component: {fileID: 2028873142}
   m_Layer: 5
-  m_Name: Button (12)
+  m_Name: v_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
