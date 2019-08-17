@@ -17,9 +17,12 @@ public class SailButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            XButtonCricked();
+        }
     }
-
+    
     public void onSailButtonCricked()
     {
         Canvas.SetActive(false);
