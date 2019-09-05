@@ -12,7 +12,12 @@ public class ShipAccel : MonoBehaviour
     public Slider speedSlider;
     SpeedSlider speedScript;
 
+    public Dropdown dropdown;
+    RotateDropdown rotateScript;
+
     private float rSpeed = 0;
+    private float rRotate = 0;
+
     private float count = 0;
 
     private Vector3 Ship_Pos;
@@ -32,28 +37,20 @@ public class ShipAccel : MonoBehaviour
 
         speedSlider = speedSlider.GetComponent<Slider>();
         speedScript = speedSlider.GetComponent<SpeedSlider>();
+
+        dropdown = dropdown.GetComponent<Dropdown>();
+        rotateScript = dropdown.GetComponent<RotateDropdown>();
     }
 
     void FixedUpdate()
     {
         force = Vector3.zero;
         spd = 0;
-        nowSpd = rigid.velocity.z;
 
-        if (count > 0)
-        {
-            spd = (Mathf.Sin((Mathf.PI * 3) / 2 + ((Mathf.PI / 40) * count)) + 1) * (18 / 2);
-        }
-        else
-        {
-            spd = 0;
-        }
+        accereration();
+        rotation();
 
-        force.z = spd;
-        rigid.AddForce(force);
-        // Vector3 diff = (Ship.transform.position - Ship_Pos);
-        // Ship.transform.Translate(force);
-
+        // 入力取る
         if (speedSlider.isActiveAndEnabled)
         {
             rSpeed = speedScript.DemandedValue();
@@ -70,9 +67,13 @@ public class ShipAccel : MonoBehaviour
             {
                 accel = true;
             }
-
         }
-
+        // 回転の入力取る
+        if (dropdown.isActiveAndEnabled)
+        {
+            rRotate = rotateScript.DemandedValue();
+            Debug.Log("ROTATE GET!!!");
+        }
 
         if (accel)
         {
@@ -91,5 +92,33 @@ public class ShipAccel : MonoBehaviour
         Debug.Log("nowSpd: " + nowSpd);
         Debug.Log("count: " + count);
         Debug.Log("rSpeed = " + rSpeed);
+    }
+
+    void accereration()
+    {
+        nowSpd = rigid.velocity.z;
+
+        if (count > 0)
+        {
+            spd = (Mathf.Sin((Mathf.PI * 3) / 2 + ((Mathf.PI / 40) * count)) + 1) * (18 / 2);
+        }
+        else
+        {
+            spd = 0;
+        }
+
+        force = (transform.forward * spd);
+        rigid.AddForce(force);
+    }
+
+    void rotation()
+    {
+        /**
+         * 
+         * 
+         * 
+         * 
+         * 
+         * */
     }
 }
