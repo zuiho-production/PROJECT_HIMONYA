@@ -10,7 +10,6 @@ public class RotateDropdown : MonoBehaviour
     ShipAccel shipAccel;
 
     float rRotate;
-    bool rotate = false;
 
     void Start()
     {

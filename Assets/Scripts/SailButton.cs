@@ -8,13 +8,10 @@ public class SailButton : MonoBehaviour
     public GameObject Canvas;
     public GameObject Sail;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject Ship;
+    public GameObject Target;
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
@@ -34,4 +31,9 @@ public class SailButton : MonoBehaviour
         Sail.SetActive(false);
     }
 
+    public void ChaseButtonCricked()
+    {
+        ShipAccel shipAccel = Ship.GetComponent<ShipAccel>();
+        shipAccel.SetChaseRotation(Target);
+    }
 }

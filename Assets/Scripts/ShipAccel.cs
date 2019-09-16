@@ -35,6 +35,10 @@ public class ShipAccel : MonoBehaviour
     private Quaternion ShipReqRotation;
     private float lerpValue = 0; // 線形補間 
 
+    // 追跡用変数
+    GameObject target;
+    bool chase = false;
+
     void Start()
     {
         force = Vector3.zero;
@@ -61,6 +65,9 @@ public class ShipAccel : MonoBehaviour
 
         if (rRotate != 0)
             rotation();
+
+        if (chase)
+            SetChaseRotation(target);
 
         // 入力取る
         if (speedSlider.isActiveAndEnabled)
@@ -136,6 +143,23 @@ public class ShipAccel : MonoBehaviour
         rRotate = value + Ship.transform.localEulerAngles.y;
         Debug.Log("ShipNowRotation: " + Ship.transform.localEulerAngles.y);
         Debug.Log("rotation[reauired]: " + rRotate);
+    }
+
+    public void SetChaseRotation(GameObject TGT)
+    {
+        target = TGT;
+
+        Vector3 shipPos = Ship.transform.position;
+        Vector3 tgtPos = target.transform.position;
+        Vector3 dif = tgtPos - shipPos;
+        Vector3 axis = Vector3.Cross(Ship.transform.forward, dif);
+
+        float angle = Vector3.Angle(Ship.transform.forward, dif) * (axis.y < 0 ? -1 : 1);
+
+        changeRotation(angle);
+        Debug.Log("angle: " + angle);
+
+        chase = true;
     }
 
     void rotation()
