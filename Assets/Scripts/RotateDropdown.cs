@@ -6,20 +6,28 @@ using UnityEngine.UI;
 public class RotateDropdown : MonoBehaviour
 {
     Dropdown dropdown;
+    public GameObject Ship;
+    ShipAccel shipAccel;
+
     float rRotate;
+    bool rotate = false;
 
     void Start()
     {
         dropdown = GetComponent<Dropdown>();
+        shipAccel = Ship.GetComponent<ShipAccel>();
     }
 
     public void OnValueChanged()
     {
         rRotate = dropdown.value * 60;
+
+        shipAccel.changeRotation(rRotate);
+
     }
 
-    public float DemandedValue()
+    public void ResetValue()
     {
-        return rRotate;
+        dropdown.value = 0;
     } 
 }
