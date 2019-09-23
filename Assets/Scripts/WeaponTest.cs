@@ -14,7 +14,7 @@ public class WeaponTest : MonoBehaviour
     public Text GunBulletsText;
 
     private Vector3 MyShip = new Vector3(0, 0, 0);
-    private Vector3 EnemyShip = new Vector3(0, 0, 0);
+    private Vector3 EnemyShip = new Vector3(0, 0, 1);
 
     private float distance = 0;
     private float angle = 0;
@@ -23,7 +23,11 @@ public class WeaponTest : MonoBehaviour
     private float GunElevation = 0;
     private int GunBullets = 0;
 
+    private bool Battle = true;
     private bool GunFire = true;
+
+    private bool GunisReady = false;
+    private bool GunisDirected = false;
     private float GunCount = 0;
 
     void Start()
@@ -35,29 +39,60 @@ public class WeaponTest : MonoBehaviour
         GunElevationText.text = "GunElevation: Loading...";
         GunBulletsText.text = "GunBullets: Loading...";
 
-        GunBullets = 4;
+        GunBullets = 66;
 
     }
 
     private void Update()
     {
-        distanceText.text = "DISTANCE: " + distance.ToString();
-        angleText.text = "ANGLE: " + angle.ToString();
-        GunAzimuthText.text = "GunAzimuth: " + GunAzimuth.ToString();
-        GunElevationText.text = "GunElevation: " + GunElevation.ToString();
+        distanceText.text = "DISTANCE: " + distance.ToString("f2");
+        angleText.text = "ANGLE: " + angle.ToString("f2");
+        GunAzimuthText.text = "GunAzimuth: " + GunAzimuth.ToString("f2");
+        GunElevationText.text = "GunElevation: " + GunElevation.ToString("f2");
         GunBulletsText.text = "GunBullets: " + GunBullets.ToString();
     }
 
     void FixedUpdate()
     {
-        GunControl();
+        Vector3 v1 = new Vector3((float)-0.01, 0, (float)0.05);
+        EnemyShip += v1;
+
+        distance = Vector3.Distance(MyShip, EnemyShip);
+        angle = Mathf.Atan2((EnemyShip.z - MyShip.z), (EnemyShip.x - MyShip.x)) * Mathf.Rad2Deg;
+
+        if (Battle)
+        {
+            if(GunFire)
+            {
+                GunControl();
+            }
+        }
     }
 
     private void GunControl()
     {
-        if (GunFire)
+        float ReqAzimuth = angle;
+
+        if (GunAzimuth < (ReqAzimuth - 1) || GunAzimuth > (ReqAzimuth + 1))
         {
-            if ((int)GunCount == 8)
+            if (ReqAzimuth > 0)
+            {
+                GunAzimuth += Time.deltaTime * 30;
+            } else if (ReqAzimuth < 0)
+            {
+                GunAzimuth -= Time.deltaTime * 30;
+            }
+            GunisDirected = false;
+        } else if (GunAzimuth >= (ReqAzimuth - 1) && (GunAzimuth) <= (ReqAzimuth + 1))
+        {
+            GunAzimuth = ReqAzimuth;
+            GunisDirected = true;
+        }
+
+
+        if (GunisReady)
+        {
+            if ((int)GunCount == 4)
             {
                 logger("fire", 0);
                 GunCount = 0;
@@ -66,19 +101,23 @@ public class WeaponTest : MonoBehaviour
             if (GunBullets <= 0)
             {
                 logger("nobullets", 0);
-                GunFire = false;
+                GunisReady = false;
                 GunBullets = 0;
                 GunCount = 0;
             }
         }
         else
         {
-            if ((int)GunCount == 90)
+            if (GunBullets <= 0 && (int)GunCount  == 90)
+            {
+                GunBullets = 66;
+            }
+
+            if (GunBullets == 66 && GunisDirected)
             {
                 logger("ready", 0);
-                GunFire = true;
-                GunBullets = 66;
                 GunCount = 0;
+                GunisReady = true;
             }
         }
 
