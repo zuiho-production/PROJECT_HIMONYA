@@ -201,7 +201,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 27568198}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 681411314}
+        m_MethodName: OnButtonCicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &27568198
@@ -497,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8abd9dc0a89794e95fced4f3ede8b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Logs: {fileID: 2112481549}
 --- !u!1 &775959486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1279,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 574062141}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999937
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1885,7 +1897,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 151.50005, y: -679.9991}
+  m_AnchoredPosition: {x: 151.50005, y: -680}
   m_SizeDelta: {x: 290, y: 670}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2112481549

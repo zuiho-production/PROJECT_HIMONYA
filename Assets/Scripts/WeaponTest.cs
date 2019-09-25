@@ -120,8 +120,29 @@ public class WeaponTest : MonoBehaviour
                 GunisReady = true;
             }
         }
-
         GunCount += Time.deltaTime;
+    }
+
+    public void ChangeStatus(int value)
+    {
+         
+        switch(value)
+        {
+            case 0:
+                if (Battle)
+                    Battle = false;
+                else
+                    Battle = true;
+                break;
+            case 1:
+                if (GunFire)
+                    GunFire = false;
+                else
+                    GunFire = true;
+                break;
+            default:
+                break;
+        }
     }
 
     private void logger(string status, int weapon)
