@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sea
+  m_Name: Pool
   m_Shader: {fileID: 4800000, guid: e9170d50833194e40b4d18d98452c15f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -28,8 +28,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Wave1:
-        m_Texture: {fileID: 2800000, guid: ed1c8fbf93f183f42a4843a1cc3b3695, type: 3}
-        m_Scale: {x: 0.3, y: 0.5}
+        m_Texture: {fileID: 2800000, guid: 6d84d3cd605402241bacfd03d739f7c8, type: 3}
+        m_Scale: {x: 0.8, y: 0.7}
         m_Offset: {x: 0, y: 0}
     - _Wave2:
         m_Texture: {fileID: 2800000, guid: e8c53bbc0d75c8e46be5ddcc1210ec52, type: 3}
@@ -37,33 +37,32 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Bias: -1
-    - _DepthTransperent: 0.225
-    - _Distortion: 350
+    - _DepthTransperent: 0
+    - _Distortion: 300
     - _DistortionVert: 10
-    - _EdgeDistortion: 0.2
+    - _EdgeDistortion: 3
     - _FPOW: 5
     - _FadeBlend: 10
-    - _FadeBlend2: 0.76
-    - _FadeDepth: 0.15
-    - _FoamIntensity: 0
+    - _FadeBlend2: 0.35
+    - _FadeDepth: 0.05
+    - _FoamIntensity: 0.5
     - _OffsetFresnel: 0.3
     - _Power: 1.5
     - _R0: 0.9
-    - _ReflectionBrightness: 0.306
-    - _RipplesScale: 20
+    - _ReflectionBrightness: 0.19642855
     - _Scale: 12
     - _TexturesScale: 20
     - _WaveScale: 1
     m_Colors:
-    - _Color: {r: 0.60784316, g: 0.60784316, b: 0.60784316, a: 1}
+    - _Color: {r: 0.85490197, g: 0.9490196, b: 0.9843137, a: 1}
     - _Direction: {r: 0.05, g: 0.3, b: 15, a: -3}
-    - _FadeColor: {r: 0.14150944, g: 0.3494329, b: 0.5660378, a: 1}
+    - _FadeColor: {r: 0.3529412, g: 0.8392157, b: 1, a: 1}
     - _FoamDirection: {r: 0, g: 5, b: -1, a: -1}
-    - _GAmplitude: {r: 0.07, g: 0.08, b: 0.04, a: 0.06}
+    - _GAmplitude: {r: 0.05, g: 0.05, b: 0.02, a: 0.03}
     - _GDirectionAB: {r: 0.4, g: -0.2, b: 0.3, a: 0.25}
     - _GDirectionCD: {r: 0.1, g: 2, b: 0.3, a: 0.5}
-    - _GFrequency: {r: 5, g: -3, b: 1, a: 0.8}
-    - _GSpeed: {r: 2, g: 2, b: 2, a: -2}
-    - _GSteepness: {r: 0.13, g: -1.05, b: 0.05, a: 0.97}
-    - _GlareColor: {r: 0.28813633, g: 0.31250444, b: 0.3490566, a: 1}
-    - _ReflectionColor: {r: 0.29837132, g: 0.36325178, b: 0.4245283, a: 1}
+    - _GFrequency: {r: 5, g: -7, b: 2, a: 3}
+    - _GSpeed: {r: 1, g: 1.5, b: 2, a: -2}
+    - _GSteepness: {r: 0.5, g: 0.05, b: 0.05, a: 0.62}
+    - _GlareColor: {r: 0.03137255, g: 0.03137255, b: 0.03137255, a: 1}
+    - _ReflectionColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}

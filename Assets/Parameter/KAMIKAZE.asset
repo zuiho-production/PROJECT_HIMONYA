@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662e0bd668d300e42b19c4e4c604575f, type: 3}
+  m_Name: KAMIKAZE
+  m_EditorClassIdentifier: 
+  ShipClass: KAMIKAZE
+  ShipType: DD
+  GunType: 3
+  RIM7_qua: 0
+  ESSM_qua: 64
+  SM2_qua: 0
+  SSM_qua: 8
+  CIWS_qua: 2
+  SeaRAM_qua: 0
+  accel_value: 40
+  rotate_value: 0.18
+  max_hp: 150
+  defence_value: 40
+  max_search: 40

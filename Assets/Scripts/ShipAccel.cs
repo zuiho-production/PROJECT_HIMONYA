@@ -8,6 +8,7 @@ public class ShipAccel : MonoBehaviour
     GameObject Ship;
     Rigidbody rigid;
     Vector3 force;
+    public ShipData shipData;
 
     // UI変数
     public Slider speedSlider;
@@ -63,7 +64,7 @@ public class ShipAccel : MonoBehaviour
 
         accereration();
 
-        if (rRotate != 0)
+        if (rotate)
             rotation();
 
         if (chase)
@@ -115,7 +116,7 @@ public class ShipAccel : MonoBehaviour
 
         if (countA > 0)
         {
-            spd = (Mathf.Sin((Mathf.PI * 3) / 2 + ((Mathf.PI / 40) * countA)) + 1) * (18 / 2);
+            spd = (Mathf.Sin((Mathf.PI * 3) / 2 + ((Mathf.PI / shipData.accel_value) * countA)) + 1) * (18 / 2);
         }
         else
         {
@@ -123,23 +124,31 @@ public class ShipAccel : MonoBehaviour
         }
 
         force = (transform.forward * spd);
-        rigid.AddForce(force);
-
+        //rigid.AddForce(force);
+        rigid.velocity = force;
         if (accel)
         {
-            if ((rSpeed - 1) > nowSpd)
+            if ((rSpeed - 1) > spd)
             {
                 countA += Time.deltaTime;
             }
-            else if ((rSpeed + 1) < nowSpd)
+            else if ((rSpeed + 1) < spd)
             {
                 countA -= Time.deltaTime;
+            }
+
+            if ((rSpeed - 1) < spd && (rSpeed + 1) > spd)
+            {
+                rigid.velocity = transform.forward * rSpeed;
             }
         }
     }
 
     public void changeRotation(float value)
     {
+        rotate = true;
+        countR = 0;
+
         rRotate = value + Ship.transform.localEulerAngles.y;
         Debug.Log("ShipNowRotation: " + Ship.transform.localEulerAngles.y);
         Debug.Log("rotation[reauired]: " + rRotate);
@@ -165,15 +174,21 @@ public class ShipAccel : MonoBehaviour
     void rotation()
     {
         ShipNowRotation = Ship.transform.rotation;
-        ShipReqRotation = Quaternion.Euler(0, rRotate, 0);       
+        ShipReqRotation = Quaternion.Euler(0, rRotate, 0);
+        float diff = Quaternion.Angle(ShipNowRotation, ShipReqRotation);
+        float rotateValue = (shipData.rotate_value * diff);
+        Debug.Log("diff: " + diff);
+        Debug.Log("rotatevalue: "+ rotateValue);
+        Debug.Log("CountR: " + countR);
 
-        if (ShipNowRotation.y != ShipReqRotation.y) 
+        if ((int)diff != 0) 
         {
             Ship.transform.rotation = Quaternion.Lerp(ShipNowRotation, ShipReqRotation, lerpValue);
+            Debug.Log("lerp: " + lerpValue);
 
             if (countR > 0)
             {
-                lerpValue = (Mathf.Sin((Mathf.PI * 3) / 2 + ((Mathf.PI / 16) * countR)) + 1) / 2;
+                lerpValue = Time.deltaTime / rotateValue;
             }
             else
             {
@@ -184,14 +199,9 @@ public class ShipAccel : MonoBehaviour
             {
                 countR += Time.deltaTime;
             }
-            else if (lerpValue == 1)
-            {
-                rotateScript.ResetValue();
-                changeRotation(0);
-            }
-            else
-            {
+            else {
                 lerpValue = 1;
+                rotate = false;
             }
 
         }
@@ -199,6 +209,7 @@ public class ShipAccel : MonoBehaviour
         {
             countR = 0;
             lerpValue = 0;
+            rotate = false;
         }
     }
 }
